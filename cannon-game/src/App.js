@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 
 class App extends Component {
@@ -6,11 +7,15 @@ class App extends Component {
     return (
       <div className="App">
         <h1>
-          Cannon Game
+          {this.props.message}
         </h1>
       </div>
     );
   }
 }
+
+App.propTypes = {
+  message: PropTypes.string.isRequired,
+};
 
 export default App;
