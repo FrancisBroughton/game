@@ -1,5 +1,6 @@
+/* stops the scrolling and make elements fit entire screen */
 html, 
 body {
-  overflow: hidden;
+  overflow: hidden; 
   height: 100%;
 }
