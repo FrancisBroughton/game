@@ -18,7 +18,7 @@ const Ground = () => {
         id="ground-2"
         data-name="ground"
         style={groundStyling}
-        x={gameFullWidth / 2}
+        x={gameFullWidth / -2}
         y={0}
         width={gameFullWidth}
         height={100}

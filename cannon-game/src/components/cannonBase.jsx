@@ -13,7 +13,7 @@ const CannonBase = (props) => {
   const height = 60;
   const negativeHeight = height * -1;
 
-  const cubicBezierCurve ={ 
+  const cubicBezierCurve = { 
     initialAxis: {
       x: -halfBase,
       y: height,

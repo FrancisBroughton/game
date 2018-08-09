@@ -2,6 +2,7 @@ import React from 'react';
 import Sky from './sky';
 import Ground from './ground';
 import CannonBase from './cannonBase';
+import CannonTube from './cannonTube';
 
 const Canvas = () => {
   const viewBox = [
@@ -16,10 +17,11 @@ const Canvas = () => {
       preserveAspectRatio="xMazYMax none"
       viewBox={viewBox}
     >
+    
     <Sky />
     <Ground />
+    <CannonTube rotation={45} />
     <CannonBase />
-    <circle cx={0} cy={0} r={50} />
 
     </svg>
   );
