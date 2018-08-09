@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const FlyingSaucerBase = (props) => {
-  const flyingSaucerBaseStyling = {
+  const flyingSaucerStyling = {
     fill: '#979797',
     stroke: '#5c5c5c',
   }
@@ -13,13 +13,13 @@ const FlyingSaucerBase = (props) => {
       cx={props.position.x}
       cy={props.position.y}
       rx="40"
-      ry="40"
-      style={flyingSaucerBaseStyling}
+      ry="10"
+      style={flyingSaucerStyling}
     />
   );
 };
 
-flyingSaucerBaseStyling.PropTypes = {
+FlyingSaucerBase.PropTypes = {
   postion: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired

@@ -6,6 +6,7 @@ import CannonBase from './cannonBase';
 import CannonTube from './cannonTube';
 import CannonBall from './cannonBall';
 import CurrentScore from './currentScore';
+import FlyingSaucer from './flyingSaucer';
 
 const Canvas = (props) => {
   const viewBox = [
@@ -20,6 +21,7 @@ const Canvas = (props) => {
       preserveAspectRatio="xMazYMax none"
       onMouseMove={props.mouseTrack}
       viewBox={viewBox}
+      
     >
 
     <defs>
@@ -35,6 +37,9 @@ const Canvas = (props) => {
     <CannonBall position={{x:0, y: -100}} />
     <CurrentScore score={20} /> 
     {/* hardcoded score to show up */}
+    <FlyingSaucer position={{x: -150, y: -300}}/>
+    <FlyingSaucer position={{x: 150, y: -300}}/>
+
 
     </svg>
   );
