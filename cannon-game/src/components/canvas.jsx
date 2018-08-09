@@ -7,6 +7,8 @@ import CannonTube from './cannonTube';
 import CannonBall from './cannonBall';
 import CurrentScore from './currentScore';
 import FlyingSaucer from './flyingSaucer';
+import Heart from './heart';
+import StartGame from './startGame';
 
 const Canvas = (props) => {
   const viewBox = [
@@ -39,6 +41,8 @@ const Canvas = (props) => {
     {/* hardcoded score to show up */}
     <FlyingSaucer position={{x: -150, y: -300}}/>
     <FlyingSaucer position={{x: 150, y: -300}}/>
+    <Heart position={{x: -300, y: 35}} />
+    <StartGame onClick={() => console.log('TAKE AIM! WE ARE UNDER ATTACK.')} />
 
 
     </svg>
