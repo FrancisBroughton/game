@@ -33,7 +33,7 @@ const StartGame = (props) => {
     <g filter="url(#shadow)">
       <rect {...button} />
       <text {...text}>
-        Take aim! We are under attack
+        We are under attack! Tap to start
       </text>
     </g>
   );
