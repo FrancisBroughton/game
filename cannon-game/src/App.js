@@ -10,6 +10,13 @@ class App extends Component {
     setInterval(() => {
       self.props.moveObjects(self.canvasMousePostion);
     }, 10)
+
+    window.onresize = () => {
+      const cnv = document.getElementById('aliens-leave-canvas');
+      cnv.style.width = `${window.innerWidth}px`;
+      cnv.style.height = `${window.innerHeight}px`;
+    };
+    window.onresize();
   }
 
   mouseTrack(event) {

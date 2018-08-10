@@ -9,13 +9,14 @@ import CurrentScore from './currentScore';
 import FlyingSaucer from './flyingSaucer';
 import Heart from './heart';
 import StartGame from './startGame';
+import GameTitle from './gameTitle'
 
 const Canvas = (props) => {
+  const gameHeight = 1200;
   const viewBox = [
     window.innerWidth / -2, 
-    100 - window.innerHeight, 
-    window.innerWidth, 
-    window.innerHeight];
+    100 - gameHeight, window.innerWidth, 
+    gameHeight];
 
   return (
     <svg
@@ -31,8 +32,9 @@ const Canvas = (props) => {
         <feDropShadow dx="1" dy="1" stdDeviation="2" />
       </filter>
     </defs>
-    
+   
     <Sky />
+    <GameTitle />
     <Ground />
     <CannonTube rotation={props.angle} />
     <CannonBase />
