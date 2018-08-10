@@ -7,7 +7,7 @@ import CannonTube from './cannonTube';
 import CannonBall from './cannonBall';
 import CurrentScore from './currentScore';
 import FlyingSaucer from './flyingSaucer';
-import Heart from './heart';
+// import Heart from './heart';
 import StartGame from './startGame';
 import GameTitle from './gameTitle'
 
@@ -24,7 +24,6 @@ const Canvas = (props) => {
       preserveAspectRatio="xMazYMax none"
       onMouseMove={props.mouseTrack}
       viewBox={viewBox}
-      
     >
 
     <defs>
@@ -34,18 +33,30 @@ const Canvas = (props) => {
     </defs>
    
     <Sky />
-    <GameTitle />
     <Ground />
     <CannonTube rotation={props.angle} />
     <CannonBase />
     <CannonBall position={{x:0, y: -100}} />
     <CurrentScore score={20} /> 
     {/* hardcoded score to show up */}
-    <FlyingSaucer position={{x: -150, y: -300}}/>
-    <FlyingSaucer position={{x: 150, y: -300}}/>
-    <Heart position={{x: -300, y: 35}} />
-    <StartGame onClick={() => console.log('TAKE AIM! WE ARE UNDER ATTACK.')} />
 
+    {!props.gameState.started && (
+      <g> 
+        <StartGame onClick={() => props.startGame()} />
+        <GameTitle />
+      </g>
+    )
+    }
+
+    {props.gameState.started && (
+      <g> 
+        <FlyingSaucer position={{x: -150, y: -300}}/>
+        <FlyingSaucer position={{x: 150, y: -300}}/>
+      </g>
+    )
+    }
+
+    {/* <Heart position={{x: -300, y: 35}} /> */}
 
     </svg>
   );
@@ -53,7 +64,13 @@ const Canvas = (props) => {
 
 Canvas.PropTypes = {
   angle: PropTypes.number.isRequired,
-  mouseTrack: PropTypes.func.isRequired,
-}
+  gameState: PropTypes.shape({
+    started: PropTypes.bool.isRequired,
+    kills: PropTypes.number.isRequired,
+    lives: PropTypes.number.isRequired,
+  }).isRequired,
+  trackMouse: PropTypes.func.isRequired,
+  startGame: PropTypes.func.isRequired,
+};
 
 export default Canvas;
