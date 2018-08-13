@@ -1,7 +1,5 @@
 import { calculateAngle } from '../utils/angleFormulas';
-import flyingObjectsCreated from 
-'./flyingObjectsCreated';
-
+import createFlyingObjects from './flyingObjectsCreated';
 
 function moveObjects(state, action) {
   const mousePosition = action.mousePosition || {
@@ -9,7 +7,7 @@ function moveObjects(state, action) {
     y: 0,
   };
 
-  const newState = flyingObjectsCreated(state);
+  const newState = createFlyingObjects(state);
 
   const { x, y } = mousePosition;
   const angle = calculateAngle(0, 0, x, y);
