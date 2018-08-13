@@ -9,7 +9,7 @@ export default (state) => {
   if (!state.gameState.started) return state;
   //game not running yet
 
-  const now = (newDate()).getTime();
+  const now = (new Date()).getTime();
   const { lastObjectCreatedAt, flyingObjects } = state.gameState;
   const createNewObject = (
     now - (lastObjectCreatedAt).getTime() > createInterval && 
@@ -22,7 +22,7 @@ export default (state) => {
 
   const id = (new Date()).getTime();
   const predefinedPosition = Math.floor(Math.random() * maxFlyingObjects);
-  const flyingObjectPosition = flyingObjectsStarterPositions[predefinedPosition];
+  const flyingObjectPostion = flyingObjectsStarterPositions[predefinedPosition];
   const newFlyingObject = {
     position: {
       x: flyingObjectPostion,

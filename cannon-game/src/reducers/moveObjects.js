@@ -9,7 +9,7 @@ function moveObjects(state, action) {
     y: 0,
   };
 
-  const newState = createFlyingObjects(state);
+  const newState = flyingObjectsCreated(state);
 
   const { x, y } = mousePosition;
   const angle = calculateAngle(0, 0, x, y);
