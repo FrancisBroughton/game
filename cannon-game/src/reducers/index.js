@@ -1,6 +1,7 @@
-import { MOVE_OBJECTS, START_GAME } from '../actions';
+import { MOVE_OBJECTS, START_GAME, FIRE } from '../actions';
 import moveObjects from './moveObjects';
 import startGame from './startGame';
+import fire from './fire';
 
 
 const initialGameState = {
@@ -9,6 +10,7 @@ const initialGameState = {
   lives: 3,
   flyingObjects: [],
   lastObjectCreatedAt: new Date(),
+  cannonBalls: []
 };
 
 
@@ -25,6 +27,9 @@ function reducer(state = initialState, action) {
     case START_GAME:
       return startGame(state, initialGameState)
 
+    case FIRE:
+      return fire(state, action)
+      
     default:
       return state;
   }

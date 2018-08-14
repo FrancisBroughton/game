@@ -24,6 +24,7 @@ const Canvas = (props) => {
       preserveAspectRatio="xMazYMax none"
       onMouseMove={props.mouseTrack}
       viewBox={viewBox}
+      onClick={props.fire}
     >
 
     <defs>
@@ -34,9 +35,16 @@ const Canvas = (props) => {
    
     <Sky />
     <Ground />
+
+    {props.gameState.cannonBalls.map(cannonBall => (
+      <CannonBall 
+        key={cannonBall.id}
+        position={cannonBall.position}
+       />
+    ))}
+    
     <CannonTube rotation={props.angle} />
     <CannonBase />
-    <CannonBall position={{x:0, y: -100}} />
     <CurrentScore score={20} /> 
     {/* hardcoded score to show up */}
 
@@ -80,10 +88,9 @@ Canvas.PropTypes = {
       id: PropTypes.number.isRequired,
     })).isRequired,
   }).isRequired,
-
-
   trackMouse: PropTypes.func.isRequired,
   startGame: PropTypes.func.isRequired,
+  fire: PropTypes.func.isRequired
 };
 
 export default Canvas;

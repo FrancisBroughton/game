@@ -5,6 +5,10 @@ import Canvas from './components/canvas';
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.fire = this.fire.bind(this);
+  }
   componentDidMount() {
     const self = this;
     setInterval(() => {
@@ -22,6 +26,10 @@ class App extends Component {
   mouseTrack(event) {
     this.canvasMousePostion = getCanvasPosition(event);
   }
+
+  fire() {
+    this.props.fire(this.canvasMousePostion);
+  }
   
   render() {
     return (
@@ -30,6 +38,7 @@ class App extends Component {
         gameState={this.props.gameState}
         startGame={this.props.startGame}
         mouseTrack={event => (this.mouseTrack(event))} 
+        fire={this.fire}
       />
     );
   }
@@ -53,6 +62,7 @@ App.protoTypes = {
   }).isRequired,
   moveObjects: PropTypes.func.isRequired,
   startGame: PropTypes.func.isRequired,
+  fire: PropTypes.func.isRequired,
 };
 
 
