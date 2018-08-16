@@ -7,7 +7,7 @@ import CannonTube from './cannonTube';
 import CannonBall from './cannonBall';
 import CurrentScore from './currentScore';
 import FlyingSaucer from './flyingSaucer';
-// import Heart from './heart';
+import Heart from './heart';
 import StartGame from './startGame';
 import GameTitle from './gameTitle'
 
@@ -18,6 +18,15 @@ const Canvas = (props) => {
     100 - gameHeight, window.innerWidth, 
     gameHeight];
 
+  const lives = [];
+  for (let i = 0; i < props.gameState.lives; i++) {
+    const heartPosition = {
+      x: -180 - (i * 70),
+      y: 35
+    };
+    lives.push(<Heart key={i} position={heartPosition}/>);
+  }
+
   return (
     <svg
       id="aliens-leave-canvas"
@@ -25,6 +34,7 @@ const Canvas = (props) => {
       onMouseMove={props.mouseTrack}
       viewBox={viewBox}
       onClick={props.fire}
+      
     >
 
     <defs>
@@ -42,11 +52,11 @@ const Canvas = (props) => {
         position={cannonBall.position}
        />
     ))}
-    
+
     <CannonTube rotation={props.angle} />
     <CannonBase />
-    <CurrentScore score={20} /> 
-    {/* hardcoded score to show up */}
+   
+    
 
     {!props.gameState.started && (
       <g> 
@@ -65,11 +75,11 @@ const Canvas = (props) => {
         />
         ))}
       </g>
-    )
-    }
+    )}
 
-    {/* <Heart position={{x: -300, y: 35}} /> */}
-
+    <CurrentScore score={props.gameState.killsPoints} />
+    
+    {lives}
     </svg>
   );
 };
